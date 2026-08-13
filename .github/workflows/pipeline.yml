@@ -34,23 +34,5 @@ jobs:
       - name: Test e2e
         run: npm run test:e2e
 
-      - name: Check Render secrets 2
-        env:
-          RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
-          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-        run: |
-          if [ -z "$RENDER_SERVICE_ID" ]; then
-            echo "❌ RENDER_SERVICE_ID está vacío"
-            exit 1
-          fi
-
-          if [ -z "$RENDER_API_KEY" ]; then
-            echo "❌ RENDER_API_KEY está vacío"
-            exit 1
-          fi
-
-          echo "✅ RENDER_SERVICE_ID existe"
-          echo "✅ RENDER_API_KEY existe"
-
       - name: Trigger Render deployment
         run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
