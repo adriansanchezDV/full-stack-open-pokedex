@@ -34,7 +34,7 @@ jobs:
       - name: Test e2e
         run: npm run test:e2e
 
-      - name: Check Render secrets 2
+      - name: Check Render secrets 1
         env:
           RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
