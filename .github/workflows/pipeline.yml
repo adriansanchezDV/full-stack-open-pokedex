@@ -34,7 +34,7 @@ jobs:
       - name: Test e2e
         run: npm run test:e2e
 
-      - name: Trigger deployment
+      - name: Trigger deployment1
         env:
           RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: curl "$RENDER_DEPLOY_HOOK_URL"
