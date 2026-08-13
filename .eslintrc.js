@@ -27,7 +27,12 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['app.js', '.eslintrc.js'],
+      files: [
+        'app.js',
+        '.eslintrc.js',
+        'playwright.config.js',
+        'e2e-tests/**/*.js',
+      ],
       env: {
         node: true,
       },
