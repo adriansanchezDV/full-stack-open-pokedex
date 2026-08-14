@@ -5,10 +5,17 @@ on:
     branches:
       - main
 
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
     steps:
+
+      - uses: actions/checkout@v4
+      
       - name: Say hello
         run: echo "¡Hola mundo!"
 
