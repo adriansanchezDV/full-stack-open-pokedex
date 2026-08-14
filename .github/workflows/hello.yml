@@ -10,12 +10,12 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  hello_world_job:
+  hello_world_jobb:
     runs-on: ubuntu-latest
     steps:
 
       - uses: actions/checkout@v4
-      
+
       - name: Say hello
         run: echo "¡Hola mundo!"
 
