@@ -1,6 +1,10 @@
 name: Health check
 
 on:
+  push:
+    branches:
+      - ejercicio-11-13
+
   workflow_dispatch:
 
   schedule:
