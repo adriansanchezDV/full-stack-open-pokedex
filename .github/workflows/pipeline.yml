@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      
 
   pull_request:
     branches: [main]
@@ -43,6 +44,13 @@ jobs:
         env:
           RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: curl "$RENDER_DEPLOY_HOOK_URL"
+
+      - name: Notify Discord
+        if: always()
+        run: |
+          curl -H "Content-Type: application/json" \
+            -d '{"content":"GitHub Actions: ${{ github.workflow }} terminó con estado ${{ job.status }} en ${{ github.ref }}"}' \
+            ${{ secrets.DISCORD_WEBHOOK }}
 
 
   tag_release:
